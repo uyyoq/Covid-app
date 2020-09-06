@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from "react-redux";
+import {HANDLE_SHOW_INFO} from "../../appredux/actionType/navbarActionType"
 
 const Cont = styled.div`
 
@@ -29,7 +30,7 @@ const mapStateToProps = (state) => {
 
 const mapDispactToProps = (dispatch) => {
   return {
-    handleShowInfo: () => dispatch({type: "HANDLE_SHOW_INFO"})
+    handleShowInfo: () => dispatch({type: HANDLE_SHOW_INFO})
   }
 }
 

@@ -1,55 +1,18 @@
 //STORE
 import { useMemo } from 'react'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import thunkMiddleware from 'redux-thunk'
+import navbarReducer,{INITIAL_STATE} from "./reducer/navbarReducer"
 
 let store
-
-// Global state
-const INITIAL_STATE = {
-  isClose: true,
-  isFetch: false,
-
-  showInfo: true, //SHOW INFO GLOBAL STATE
-  isNotif: true
-}
-
-
-// REDUCER
-const reducerForm = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case "CHANGE_IS_CLOSE":
-      return {
-        ...state,
-        inClose: !state.isClose
-      }
-    
-    case "CHANGE_IS_FETCH":
-      return {
-        ...state,
-        inClose: !state.isFetch
-      }
-
-      
-    case "HANDLE_SHOW_INFO":
-      return {
-        ...state,
-        showInfo: !state.showInfo,
-        isNotif: !state.isNotif
-      }
-
-    
-    default:
-      return state
-  }
-}
-
-
 
 // CONFIGURATION
 function initStore(preloadedState = INITIAL_STATE ) {
   return createStore(
-    reducerForm,
+    navbarReducer,
     preloadedState,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
   )
 }
 

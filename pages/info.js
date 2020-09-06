@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
 import styled from "styled-components";
-import Link from 'next/link';
 import { connect } from "react-redux"
-
+import {HANDLE_SHOW_INFO} from "../appredux/actionType/navbarActionType"
 
 const Container = styled.div`
  display: flex;
@@ -65,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispactToProps = (dispatch) => {
   return {
-    handleShowInfo: () => dispatch({type: "HANDLE_SHOW_INFO"})
+    handleShowInfo: () => dispatch({type: HANDLE_SHOW_INFO})
   }
 }
 
