@@ -53,7 +53,7 @@ const Fab = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isNotif: state.isNotif
+    isNotif: state.navbarReducer.isNotif
   }
 }
 

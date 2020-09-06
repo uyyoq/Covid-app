@@ -52,7 +52,7 @@ function Navbar(props) {
 
 const mapStateToProps = (state) => {
   return {
-    showInfo: state.showInfo
+    showInfo: state.navbarReducer.showInfo
   }
 }
 

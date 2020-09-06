@@ -41,7 +41,7 @@ const Link = styled.a`
 const Indonesia = ({data }) => {
   // const [showInfo, setShowInfo] = useState(true);
   // const [isNotif, setNotif] = useState(true);
-  const showInfo = useSelector(state => state.showInfo)
+  const showInfo = useSelector(state => state.navbarReducer.showInfo)
 
   useEffect(() => {
     console.log("data covid indo", data.articles)
@@ -93,7 +93,7 @@ export const getServerSideProps = async () => {
 
 const mapStateToProps = (state) => {
   return {
-    showInfo: state.showInfo
+    showInfo: state.navbarReducer.showInfo
   }
 }
 
