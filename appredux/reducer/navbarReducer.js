@@ -4,7 +4,8 @@ export const INITIAL_STATE = {
   isFetch: false,
 
   showInfo: true, //SHOW INFO GLOBAL STATE
-  isNotif: true
+  isNotif: true,
+  data: []
 }
 
 const navbarReducer = (state = INITIAL_STATE, action) => {
@@ -28,8 +29,6 @@ const navbarReducer = (state = INITIAL_STATE, action) => {
         showInfo: !state.showInfo,
         isNotif: !state.isNotif
       }
-
-    
     default:
       return state
   }

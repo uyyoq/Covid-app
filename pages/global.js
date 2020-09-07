@@ -5,8 +5,10 @@ import Fab from '../components/Fab/fab'
 import styled from "styled-components";
 import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
-import { connect } from "react-redux"
-import axios from "axios"
+// import { connect } from "react-redux"
+import {useDispatch} from "react-redux"
+// import axios from "axios"
+// import actionFetchArticles from "../appredux/actionCreator/actionFetchArticles"
 
 const Container = styled.div`
 display: flex;
@@ -39,19 +41,24 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const global = () => {
-  const[data, setData] = useState([]);
+const global = (props) => {
+  const dispatch = useDispatch()
+  // const[data, setData] = useState([]);nd+
 
-  const showInfo = useSelector(state => state.showInfo)
+
+  const showInfo = useSelector(state => state.navbarReducer.showInfo)
+  const data = useSelector(state => state.list)
 
   useEffect(async() => {
-    const fetchData = async () => {
-      const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
+     await dispatch(actionFetchArticles())
+     
+    // const fetchData = async () => {
+    //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
       
-      await setData(result.data.articles) //dispatch
-    };
+    //   await setData(result.data.articles) //dispatch
+    // };
 
-    fetchData()
+    // fetchData()
   }, []);
 
   return (
@@ -90,15 +97,17 @@ const global = () => {
 //   }
 // }
 
-const mapStateToProps = (state) => {
-  return {
-    showInfo: state.showInfo
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     showInfo: state.navbarReducer.showInfo
+//   }
+// }
 
-const mapDispatchToProps = {}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     actionFetchArticles: () => dispatch(actionFetchArticles())
+//   }
+// }
 
-// 1. klik fab = navbar background hitam tulisan putih
-// 2. close button di k
-
-export default connect(mapStateToProps, mapDispatchToProps)(global)
+// export default connect(mapStateToProps, mapDispatchToProps)(global)
+export default global

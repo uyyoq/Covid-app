@@ -28,11 +28,6 @@
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/global.js"
-    ],
-    "/indonesia": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/indonesia.js"
     ]
   },
   "ampFirstPages": []
