@@ -4,13 +4,16 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import navbarReducer,{INITIAL_STATE} from "./reducer/navbarReducer"
+import listArticlesReducer from './reducer/listArticlesReducer'
+import combineReducers from "./reducer/index"
+
 
 let store
 
 // CONFIGURATION
 function initStore(preloadedState = INITIAL_STATE ) {
   return createStore(
-    navbarReducer,
+    combineReducers,
     preloadedState,
     composeWithDevTools(applyMiddleware(thunkMiddleware))
   )
