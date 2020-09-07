@@ -3,9 +3,7 @@ import { useMemo } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
-import navbarReducer,{INITIAL_STATE} from "./reducer/navbarReducer"
-import listArticlesReducer from './reducer/listArticlesReducer'
-import combineReducers from "./reducer/index"
+import rootReducer from "./reducer"
 
 
 let store
@@ -13,7 +11,7 @@ let store
 // CONFIGURATION
 function initStore(preloadedState = INITIAL_STATE ) {
   return createStore(
-    combineReducers,
+    rootReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware(thunkMiddleware))
   )

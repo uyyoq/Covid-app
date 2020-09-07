@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
 // import { connect } from "react-redux"
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 // import axios from "axios"
 // import actionFetchArticles from "../appredux/actionCreator/actionFetchArticles"
 
@@ -43,17 +43,17 @@ const Link = styled.a`
 
 const global = (props) => {
   // const dispatch = useDispatch()
-  const[data, setData] = useState([])
+  // const[data, setData] = useState([])
 
   const showInfo = useSelector(state => state.navbarReducer.showInfo)
-  const data = useSelector(state => state.list)
+  // const data = useSelector(state => state.list)
 
-  useEffect(async() => {
-     await dispatch(actionFetchArticles())
-     
+  useEffect(async () => {
+    await dispatch(actionFetchArticles())
+
     const fetchData = async () => {
       const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
-      
+
       await setData(result.data.articles) //dispatch
     };
 
@@ -98,7 +98,7 @@ const global = (props) => {
 
 // const mapStateToProps = (state) => {
 //   return {
-//     showInfo: state.navbarReducer.showInfo
+// showInfo: state.navbarReducer.showInfo
 //   }
 // }
 

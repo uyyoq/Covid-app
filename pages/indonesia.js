@@ -93,7 +93,7 @@ export const getServerSideProps = async () => {
 
 const mapStateToProps = (state) => {
   return {
-    showInfo: state.showInfo
+    showInfo: state.navbarReducer.showInfo
   }
 }
 
