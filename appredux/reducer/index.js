@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import listArticlesReducer from "./listArticlesReducer"
 import navbarReducer from "./navbarReducer"
 
-export default combineReducers = () => {
+export default combineReducers = ({
   listArticlesReducer,
   navbarReducer
-}
+})
