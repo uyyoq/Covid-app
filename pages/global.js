@@ -43,7 +43,7 @@ const Link = styled.a`
 
 const global = (props) => {
   const dispatch = useDispatch()
-  // const[data, setData] = useState([]);nd+
+  // const[data, setData] = useState([]);
 
 
   const showInfo = useSelector(state => state.navbarReducer.showInfo)
