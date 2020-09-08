@@ -3,9 +3,9 @@ import { useSelector } from "react-redux"
 import Navbar from '../components/Navbar'
 import Fab from '../components/Fab/fab'
 import styled from "styled-components";
-import { API_COVID_GLOBAL } from "../constant/API_URL"
+// import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
-import { connect } from "react-redux"
+// import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
 import actionFetch from '../appredux/reducer/actionCreator/actionFetch';
 // import axios from "axios"
@@ -42,14 +42,14 @@ const Link = styled.a`
 `;
 
 const global = (props) => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   // const[data, setData] = useState([])
 
   const showInfo = useSelector(state => state.navbarReducer.showInfo)
   const data = useSelector(state => state.listArticlesReducer.data)
 
-  useEffect(async () => {
-    await dispatch(actionFetch())
+  useEffect(() => {
+    dispatch(actionFetch())
 
     // const fetchData = async () => {
     //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);

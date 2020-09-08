@@ -20,4 +20,4 @@ const listArticlesReducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default listArticlesReducer
+export default listArticlesReducer 
