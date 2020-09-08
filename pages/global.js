@@ -5,10 +5,10 @@ import Fab from '../components/Fab/fab'
 import styled from "styled-components";
 import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
-// import { connect } from "react-redux"
+import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
+import actionFetch from '../appredux/reducer/actionCreator/actionFetch';
 // import axios from "axios"
-// import actionFetchArticles from "../appredux/actionCreator/actionFetchArticles"
 
 const Container = styled.div`
 display: flex;
@@ -46,18 +46,18 @@ const global = (props) => {
   // const[data, setData] = useState([])
 
   const showInfo = useSelector(state => state.navbarReducer.showInfo)
-  // const data = useSelector(state => state.list)
+  const data = useSelector(state => state.listArticlesReducer.data)
 
   useEffect(async () => {
-    await dispatch(actionFetchArticles())
+    await dispatch(actionFetch())
 
-    const fetchData = async () => {
-      const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
+    // const fetchData = async () => {
+    //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
 
-      await setData(result.data.articles) //dispatch
-    };
+    //   await setData(result.data.articles) //dispatch
+    // };
 
-    fetchData()
+    // fetchData()
   }, []);
 
   return (
