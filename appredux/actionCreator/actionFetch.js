@@ -7,4 +7,4 @@ const actionFetch = () => {
   }
 }
 
-export default actionFetch;
+export default actionFetch

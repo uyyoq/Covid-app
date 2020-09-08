@@ -7,7 +7,7 @@ import styled from "styled-components";
 import Info from './info';
 // import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
-import actionFetch from '../appredux/reducer/actionCreator/actionFetch';
+import actionFetch from '../appredux/actionCreator/actionFetch';
 // import axios from "axios"
 
 const Container = styled.div`
