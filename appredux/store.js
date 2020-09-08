@@ -9,7 +9,7 @@ import rootReducer from "./reducer/index"
 let store
 
 // CONFIGURATION
-function initStore(preloadedState = INITIAL_STATE ) {
+function initStore(preloadedState) {
   return createStore(
     rootReducer,
     preloadedState,
