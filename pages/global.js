@@ -8,7 +8,7 @@ import Info from './info';
 // import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
 import actionFetch from '../appredux/actionCreator/actionFetch';
-// import axios from "axios"
+// import listArticlesReducer from "../appredux/reducer/listArticlesReducer";g
 
 const Container = styled.div`
 display: flex;
@@ -41,7 +41,7 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const global = (props) => {
+const global = () => {
   const dispatch = useDispatch()
   // const[data, setData] = useState([])
 
@@ -49,7 +49,7 @@ const global = (props) => {
   const data = useSelector(state => state.listArticlesReducer.data)
 
   useEffect(() => {
-    dispatch(actionFetch())
+    dispatch(actionFetch());
 
     // const fetchData = async () => {
     //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);

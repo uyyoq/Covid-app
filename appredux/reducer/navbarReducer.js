@@ -4,11 +4,9 @@ export const INITIAL_STATE = {
   isFetch: false,
 
   showInfo: true, //SHOW INFO GLOBAL STATE
-  isNotif: true,
-  data: []
-}
+  isNotif: true}
 
-const navbarReducer = (state = INITIAL_STATE, action) => {
+const NavbarReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "CHANGE_IS_CLOSE":
       return {
@@ -22,7 +20,7 @@ const navbarReducer = (state = INITIAL_STATE, action) => {
         inClose: !state.isFetch
       }
 
-      
+       
     case "HANDLE_SHOW_INFO":
       return {
         ...state,
@@ -34,4 +32,4 @@ const navbarReducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default navbarReducer
+export default NavbarReducer

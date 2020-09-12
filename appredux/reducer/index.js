@@ -7,9 +7,7 @@ const rootReducer = combineReducers({
   navbarReducer
 });
 
-
 export default rootReducer
-
 
 // export default combineReducers({
 //   navbarReducer: navbarReducer,

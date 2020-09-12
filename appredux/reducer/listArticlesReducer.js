@@ -7,13 +7,13 @@ const listArticlesReducer = (state = INITIAL_STATE, action) => {
     case "SET_DATA":
       return {
         ...state,
-        data  : action.payload
+        data: action.payload
       }
     
     case "SET_DATA2":
       return {
         ...state,
-        data : action.payload
+        data: action.payload
       }
     default:
       return state
