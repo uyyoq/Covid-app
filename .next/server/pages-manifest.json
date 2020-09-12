@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/indonesia": "pages/indonesia.js"
+  "/indonesia": "pages/indonesia.js",
+  "/global": "pages/global.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
 }
