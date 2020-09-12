@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from "react-redux"
 import Navbar from '../components/Navbar'
 import Fab from '../components/Fab/fab'
 import styled from "styled-components";
-import { API_COVID_GLOBAL } from "../constant/API_URL"
+// import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
-import { connect } from "react-redux"
+// import { connect } from "react-redux"
+import { useDispatch } from "react-redux"
+import actionFetch from '../appredux/actionCreator/actionFetch';
+// import listArticlesReducer from "../appredux/reducer/listArticlesReducer";g
 
 const Container = styled.div`
 display: flex;
@@ -37,23 +41,34 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const global = (props, { data }) => {
-  // const [ showInfo, setShowInfo] = useState(true);
-  // const [ isNotif, setNotif] = useState(true)
-  
+const global = () => {
+  const dispatch = useDispatch()
+  // const[data, setData] = useState([])
+
+  const showInfo = useSelector(state => state.navbarReducer.showInfo)
+  const data = useSelector(state => state.listArticlesReducer.data)
+
   useEffect(() => {
-    console.log("data covid", data.articles)
-  }, [])
+    dispatch(actionFetch());
+
+    // const fetchData = async () => {
+    //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
+
+    //   await setData(result.data.articles) //dispatch
+    // };
+
+    // fetchData()
+  }, []);
 
   return (
     <Container>
       <Navbar />
       <h1>Covid News - Global</h1>
       {
-       props.showInfo ? (
-          data.articles.map(data => (
+        showInfo ? (
+          data.map(data => (
             <Wrapper>
-               <Link href={data.url} target="_blank">
+              <Link href={data.url} target="_blank">
                 <Title>{data.title}</Title>
                 <Source>{data.source.name}</Source>
               </Link>
@@ -66,29 +81,32 @@ const global = (props, { data }) => {
   )
 }
 
-export const getServerSideProps = async () => {
-  try {
-    const res = await fetch(`${API_COVID_GLOBAL}`)
-    const data = await res.json()
-    return {
-      props:
-        { data }
-    }
-  } catch (error) {
-   return {
-     props : {}
-   }
-}
-}
+// export const getServerSideProps = async () => {
+//   try {
+//     const res = await fetch(`${API_COVID_GLOBAL}`)
+//     const data = await res.json()
+//     return {
+//       props:
+//         { data }
+//     }
+//   } catch (error) {
+//     return {
+//       props: {}
+//     }
+//   }
+// }
 
-const mapStateToProps = (state) => {
-  return {
-    showInfo: state.showInfo
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+// showInfo: state.navbarReducer.showInfo
+//   }
+// }
 
-const mapDispatchToProps = {}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     actionFetchArticles: () => dispatch(actionFetchArticles())
+//   }
+// }
 
-// 1. klik fab = navbar background hitam tulisan putih
-// 2. close button di klik = normal
-export default connect(mapStateToProps, mapDispatchToProps)(global)
+// export default connect(mapStateToProps, mapDispatchToProps)(global)
+export default global

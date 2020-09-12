@@ -1,0 +1,3 @@
+export const CHANGE_IS_CLOSE = "CHANGE_IS_CLOSE"
+export const CHANGE_IS_FETCH = "CHANGE_IS_FETCH"
+export const HANDLE_SHOW_INFO = "HANDLE_SHOW_INFO"

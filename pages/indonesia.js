@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import {useSelector} from "react-redux"
 import Navbar from '../components/Navbar';
 import Fab from '../components/Fab/fab';
 import Info from "./info"
@@ -37,9 +38,10 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const indonesia = ({data }) => {
+const Indonesia = ({data }) => {
   // const [showInfo, setShowInfo] = useState(true);
   // const [isNotif, setNotif] = useState(true);
+  const showInfo = useSelector(state => state.navbarReducer.showInfo)
 
   useEffect(() => {
     console.log("data covid indo", data.articles)
@@ -56,7 +58,7 @@ const indonesia = ({data }) => {
       <h1>Covid News - Indonesia</h1>
 
       {
-        props.showInfo ? (
+        showInfo ? (
           data.articles.map(data => (
             <Wrapper>
               <Link href={data.url} target="_blank">
@@ -88,13 +90,14 @@ export const getServerSideProps = async () => {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    showInfo: state.showInfo
+    showInfo: state.navbarReducer.showInfo
   }
 }
 
 const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(indonesia);
+export default connect(mapStateToProps, mapDispatchToProps)(Indonesia);
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from "react-redux";
+import {HANDLE_SHOW_INFO} from "../../appredux/actionType/navbarActionType"
 
 const Cont = styled.div`
 
@@ -23,13 +24,13 @@ function Tahun(props) {
 
 const mapStateToProps = (state) => {
   return {
- showInfo: state.showInfo
+ showInfo: state.navbarReducer.showInfo
 }  
 }
 
 const mapDispactToProps = (dispatch) => {
   return {
-    handleShowInfo: () => dispatch({type: "HANDLE_SHOW_INFO"})
+    handleShowInfo: () => dispatch({type: HANDLE_SHOW_INFO})
   }
 }
 

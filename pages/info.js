@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
 import styled from "styled-components";
-import Link from 'next/link';
 import { connect } from "react-redux"
-
+import { HANDLE_SHOW_INFO } from "../appredux/actionType/navbarActionType"
 
 const Container = styled.div`
  display: flex;
@@ -42,9 +40,9 @@ const Info = (props) => {
   return (
     <Container>
       <ListCont>
-          <CloseBtn>
-            <ContClose onClick={props.handleShowInfo}  src={CloseImg} alt="close-button-img" />
-          </CloseBtn>
+        <CloseBtn>
+          <ContClose onClick={props.handleShowInfo} src={CloseImg} alt="close-button-img" />
+        </CloseBtn>
         <Wrap>
           <ul>
             <li>Dikonfirmasi: 170 rb </li>
@@ -59,13 +57,13 @@ const Info = (props) => {
 
 const mapStateToProps = (state) => {
   return {
- showInfo: state.showInfo
-}  
+    showInfo: state.navbarReducer.showInfo
+  }
 }
 
 const mapDispactToProps = (dispatch) => {
   return {
-    handleShowInfo: () => dispatch({type: "HANDLE_SHOW_INFO"})
+    handleShowInfo: () => dispatch({ type: HANDLE_SHOW_INFO })
   }
 }
 
