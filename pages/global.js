@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from "react-redux"
 import Navbar from '../components/Navbar'
 import Fab from '../components/Fab/fab'
+import Count from "../components/Count/count"
 import styled from "styled-components";
 // import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
@@ -77,6 +78,7 @@ const global = () => {
         ) : (<Info />)
       }
       <Fab />
+      <Count />
     </Container>
   )
 }

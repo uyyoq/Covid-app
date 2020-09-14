@@ -4,39 +4,20 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from "./reducer/index"
+import { persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
+// let store
 
-let store
-
-// CONFIGURATION
-function initStore(preloadedState) {
-  return createStore(
-    rootReducer,
-    preloadedState,
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
-  )
+const persistConfig = {
+  key: 'covidNews',
+  storage,
 }
 
-export const initializeStore = (preloadedState) => {
-  let _store = store ?? initStore(preloadedState)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-  // After navigating to a page with an initial Redux state, merge that state
-  // with the current state in the store, and create a new store
-  if (preloadedState && store) {
-    _store = initStore({
-      ...store.getState(),
-      ...preloadedState,
-    })
-    // Reset the current store
-    store = undefined
-  }
-
-  // For SSG and SSR always create a new store
-  if (typeof window === 'undefined') return _store
-  // Create the store once in the client
-  if (!store) store = _store
-
-  return _store
+export default function initializeStore(preloadedState) {
+  return createStore(persistedReducer, preloadedState,  composeWithDevTools(applyMiddleware(thunkMiddleware)) )
 }
 
 export function useStore(initialState) {
