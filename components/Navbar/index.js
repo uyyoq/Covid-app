@@ -23,7 +23,7 @@ const Menu = styled.div`
 
 const List = styled.a`
  font-size: 18px;
- font-weight: 16px;
+ font-weight: bold;
  cursor: pointer;
  color: ${props => props.isDark ? "black" : "white"};
 
@@ -40,12 +40,18 @@ function Navbar(props) {
           <List isDark={props.showInfo} >Indonesia</List>
         </Link>
       </Menu>
-      <Title />
+      {/* <Title /> */}
+      <Menu>
+        <Link href="/login">
+          <List isDark={props.showInfo} >Login</List>
+        </Link>
+      </Menu>
       <Menu>
         <Link href="/global">
           <List isDark={props.showInfo} >Global</List>
         </Link>
       </Menu>
+      
     </Container>
   )
 }

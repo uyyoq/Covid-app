@@ -9,6 +9,7 @@ import Info from './info';
 // import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
 import actionFetch from '../appredux/actionCreator/actionFetch';
+import Form from '../components/form-formik/form'
 // import listArticlesReducer from "../appredux/reducer/listArticlesReducer";g
 
 const Container = styled.div`
@@ -79,6 +80,7 @@ const global = () => {
       }
       <Fab />
       <Count />
+      <Form />
     </Container>
   )
 }
