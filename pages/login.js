@@ -1,10 +1,10 @@
 import React from "react"
-import Form from "../components/form-formik/form"
+import DataDiri from "../components/form-formik/dataDiri"
 
 
 const Login = () => {
   return (
-    <Form />
+    <DataDiri />
   )
 }
 

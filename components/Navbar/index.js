@@ -43,7 +43,7 @@ function Navbar(props) {
       {/* <Title /> */}
       <Menu>
         <Link href="/login">
-          <List isDark={props.showInfo} >Login</List>
+          <List isDark={props.showInfo} >Daftar</List>
         </Link>
       </Menu>
       <Menu>

@@ -35,22 +35,25 @@ const LabelForm = styled.label`
   display: flex;
   margin-bottom: 5px;
 `
+const reqNumber = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const validationSchema = Yup.object({
   nama: Yup.string().required('Harus diisi!').min(3, 'Harus 3 karakter atau lebih!'),
   email: Yup.string().required('Harus diisi!').email('Format email tidak valid!'),
+  nomor: Yup.string().required('Harus diisi!').matches(reqNumber, 'Nomor telepon tidak valid '),
 });
 
 const initialValues = {
   nama: '',
   email: '',
+  Nomor: ''
 }
 
 const onSubmit = values => {
   console.log("Form values", values);
 }
 
-const ExampleForm = () => {
+const DataDiri = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -90,6 +93,22 @@ const ExampleForm = () => {
             <Error>{formik.errors.email}</Error>
           ) : null}
         </ListForm>
+
+        <ListForm>
+          <LabelForm htmlFor="nomor">Nomor Telepon</LabelForm>
+          <InputForm
+            type="nomor"
+            id="nomor"
+            name="nomor"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.nomor}
+          />
+          {formik.touched.nomor && formik.errors.nomor ? (
+            <Error>{formik.errors.nomor}</Error>
+          ) : null}
+        </ListForm>
+
         <WrapBtn>
           <BtnSubmit type="submit"> Daftar </BtnSubmit>
         </WrapBtn>
@@ -100,4 +119,4 @@ const ExampleForm = () => {
 }
 
 
-export default ExampleForm;
+export default DataDiri;

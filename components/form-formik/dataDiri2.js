@@ -50,7 +50,7 @@ const onSubmit = values => {
   console.log("Form values", values);
 }
 
-const FormIK = () => {
+const DataDiri2 = () => {
   return (
     <Formik
     initialValues={initialValues}
@@ -87,4 +87,4 @@ const FormIK = () => {
 }
 
 
-export default FormIK;
+export default DataDiri2;
