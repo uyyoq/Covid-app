@@ -5,8 +5,10 @@ import Fab from '../components/Fab/fab'
 import Count from "../components/Count/count"
 import styled from "styled-components";
 import Info from './info';
-import { useDispatch } from "react-redux"
-import actionFetch from '../appredux/actionCreator/actionFetch';
+// import { connect } from "react-redux"
+import {useDispatch} from "react-redux"
+// import axios from "axios"
+import actionFetchArticles from "../appredux/actionCreator/actionFetchArticles"
 
 const Container = styled.div`
 display: flex;
@@ -39,19 +41,20 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const global = () => {
+const global = (props) => {
   const dispatch = useDispatch()
-  // const[data, setData] = useState([])
+  // const[data, setData] = useState([]);
+
 
   const showInfo = useSelector(state => state.navbarReducer.showInfo)
   const data = useSelector(state => state.listArticlesReducer.data)
 
   useEffect(() => {
-    dispatch(actionFetch());
-
+     dispatch(actionFetchArticles())
+     
     // const fetchData = async () => {
     //   const result = await axios("https://newsapi.org/v2/everything?q=covid&apiKey=4055e2c89faa40e384b1dd16c0daef44",);
-
+      
     //   await setData(result.data.articles) //dispatch
     // };
 
@@ -97,7 +100,7 @@ const global = () => {
 
 // const mapStateToProps = (state) => {
 //   return {
-// showInfo: state.navbarReducer.showInfo
+//     showInfo: state.navbarReducer.showInfo
 //   }
 // }
 

@@ -57,8 +57,8 @@ const Info = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    showInfo: state.navbarReducer.showInfo
-  }
+ showInfo: state.navbarReducer.showInfo
+}  
 }
 
 const mapDispactToProps = (dispatch) => {

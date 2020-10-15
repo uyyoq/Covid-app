@@ -3,15 +3,18 @@ import { useMemo } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
-import rootReducer from "./reducer/index"
-import { persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+// import navbarReducer,{INITIAL_STATE} from "./reducer/navbarReducer"
+import rootReducer from "./reducer"
 
 // let store
 
-const persistConfig = {
-  key: 'covidNews',
-  storage,
+// CONFIGURATION
+function initStore(preloadedState) {
+  return createStore(
+    rootReducer,
+    preloadedState,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+  )
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
