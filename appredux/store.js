@@ -20,6 +20,7 @@ export default function initializeStore(preloadedState) {
   return createStore(persistedReducer, preloadedState,  composeWithDevTools(applyMiddleware(thunkMiddleware)) )
 }
 
+
 export function useStore(initialState) {
   const store = useMemo(() => initializeStore(initialState), [initialState])
   return store

@@ -3,5 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/indonesia": "pages/indonesia.js",
-  "/login": "pages/login.js"
+  "/global": "pages/global.js"
 }

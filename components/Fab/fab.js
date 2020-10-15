@@ -43,7 +43,8 @@ const Fab = (props) => {
       <Container>
         <Icon 
         onClick={props.handleShowInfo}
-         src={ImgIcon} alt="image-Fab" />
+         src={ImgIcon} alt="image-Fab" 
+        />
         {
          props.isNotif ? (<Notif />) : (null)
         }

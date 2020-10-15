@@ -4,13 +4,9 @@ import Navbar from '../components/Navbar'
 import Fab from '../components/Fab/fab'
 import Count from "../components/Count/count"
 import styled from "styled-components";
-// import { API_COVID_GLOBAL } from "../constant/API_URL"
 import Info from './info';
-// import { connect } from "react-redux"
 import { useDispatch } from "react-redux"
 import actionFetch from '../appredux/actionCreator/actionFetch';
-import Form from '../components/form-formik/form'
-// import listArticlesReducer from "../appredux/reducer/listArticlesReducer";g
 
 const Container = styled.div`
 display: flex;
@@ -80,7 +76,6 @@ const global = () => {
       }
       <Fab />
       <Count />
-      <Form />
     </Container>
   )
 }

@@ -43,8 +43,9 @@ function Navbar(props) {
       {/* <Title /> */}
       <Menu>
         <Link href="/login">
-          <List isDark={props.showInfo} >Daftar</List>
+          <List isDark={props.showInfo} >Login</List>
         </Link>
+        
       </Menu>
       <Menu>
         <Link href="/global">

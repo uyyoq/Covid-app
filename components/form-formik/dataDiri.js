@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styled from "styled-components"
-
+import { useSelector, useDispatch } from "react-redux"
 
 const Wrapper = styled.form`
   display: flex;
@@ -23,6 +23,8 @@ const BtnSubmit = styled.button`
   background-color: grey ;
   padding: 10px 15px ;
   cursor: pointer;
+  margin-right: 15px;
+  margin-left: 15px;
 `
 const InputForm = styled.input`
   width: 400px;
@@ -53,13 +55,21 @@ const onSubmit = values => {
   console.log("Form values", values);
 }
 
-const DataDiri = () => {
+const DataDiri = (props) => {
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
   })
 
+  const dispatch = useDispatch();
+  
+  const handleContinue = event => {
+    dispatch({type: CONTINUE})
+
+    event.preventDefault();
+  }
+  
   return (
     <div>
       <Wrapper>
@@ -108,15 +118,9 @@ const DataDiri = () => {
             <Error>{formik.errors.nomor}</Error>
           ) : null}
         </ListForm>
-
-        <WrapBtn>
-          <BtnSubmit type="submit"> Daftar </BtnSubmit>
-        </WrapBtn>
-
       </Wrapper>
     </div>
   )
 }
 
-
-export default DataDiri;
+export default DataDiri
